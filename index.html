@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="自由資金">
+<meta name="theme-color" content="#F1F0EA">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>自由資金</title>
+<style>
+  :root{
+    --paper:#F1F0EA; --card:#fff; --ink:#26241E; --mut:#8B867B;
+    --line:#E4E2DA; --seal:#C4402E; --pos:#3E7C5A; --chip:#EAE8E0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;
+  }
+  #app{max-width:520px; margin:0 auto; min-height:100vh; display:flex; flex-direction:column; padding-bottom:96px}
+  .num{font-variant-numeric:tabular-nums}
+  .loading{flex:1; display:flex; align-items:center; justify-content:center; color:var(--mut); font-size:14px; min-height:60vh}
+  .hdr{position:sticky; top:0; z-index:20; background:var(--paper); padding:20px 16px 12px; display:flex; align-items:center; justify-content:space-between}
+  .eyebrow{font-size:11px; letter-spacing:.14em; color:var(--mut); font-weight:600}
+  .main{flex:1; padding:0 16px}
+  .card{background:var(--card); border-radius:14px; border:1px solid var(--line); padding:16px}
+  .between{display:flex; align-items:center; justify-content:space-between}
+  .pill{padding:7px 11px; border-radius:999px; border:none; cursor:pointer; color:#fff; font-size:12px; font-weight:700; white-space:nowrap}
+  .ghost{width:32px; height:32px; border-radius:8px; border:1px solid var(--line); background:#fff; cursor:pointer; color:var(--mut); font-size:14px; flex-shrink:0}
+  .addrow{width:100%; padding:11px 0; border-radius:10px; border:1px dashed var(--line); background:transparent; cursor:pointer; color:var(--mut); font-size:13px; font-weight:600; margin-top:6px}
+  .bar{border-radius:999px; overflow:hidden}
+  .bar>span{display:block; height:100%; border-radius:999px}
+  .grid7{display:grid; grid-template-columns:repeat(7,1fr); gap:2px}
+  .wk{display:grid; grid-template-columns:repeat(7,1fr); text-align:center; margin-bottom:4px}
+  .cell{aspect-ratio:1/1; border:none; border-radius:8px; cursor:pointer; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding:4px 2px 2px; gap:2px; background:transparent}
+  .tag{font-size:10px; font-weight:600; padding:2px 7px; border-radius:999px; display:inline-block}
+  .entry{background:var(--card); border-radius:14px; border:1px solid var(--line); padding:12px 14px; margin-bottom:8px; display:flex; align-items:center; gap:10px; cursor:pointer}
+  .iconbtn{width:34px; height:34px; border-radius:9px; border:1px solid var(--line); background:#fff; cursor:pointer; font-size:20px; color:var(--ink); line-height:1}
+  .tabbar{position:fixed; left:0; right:0; bottom:0}
+  .tabbar>div{max-width:520px; margin:0 auto; background:rgba(255,255,255,.94); backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); border-top:1px solid var(--line); display:flex; padding-bottom:env(safe-area-inset-bottom)}
+  .tabbtn{flex:1; background:none; border:none; cursor:pointer; padding:10px 0 12px; display:flex; flex-direction:column; align-items:center; gap:3px; color:var(--mut)}
+  .tabbtn.on{color:var(--ink)}
+  .tabbtn .ic{font-size:18px; line-height:1}
+  .tabbtn .tt{font-size:11px; font-weight:500}
+  .tabbtn.on .tt{font-weight:700}
+  /* sheet */
+  .sheetbg{position:fixed; inset:0; background:rgba(20,18,14,.4); z-index:50; display:flex; align-items:flex-end; justify-content:center}
+  .sheet{width:100%; max-width:520px; background:var(--card); border-radius:20px 20px 0 0; padding:10px 18px calc(20px + env(safe-area-inset-bottom)); max-height:88vh; overflow-y:auto}
+  .handle{width:40px; height:4px; background:var(--line); border-radius:999px; margin:6px auto 14px}
+  .stitle{font-size:18px; font-weight:700; margin-bottom:14px}
+  .flabel{font-size:12px; color:var(--mut); margin-bottom:6px; font-weight:600}
+  .field{margin-bottom:12px}
+  .input{width:100%; box-sizing:border-box; padding:12px 14px; font-size:16px; border-radius:10px; border:1px solid var(--line); background:#fff; color:var(--ink); outline:none}
+  select.input{appearance:auto; -webkit-appearance:auto}
+  .seg{display:flex; gap:6px; background:var(--paper); padding:4px; border-radius:11px; margin-bottom:12px}
+  .segb{flex:1; padding:9px 0; border-radius:8px; border:none; cursor:pointer; font-weight:700; font-size:14px; background:transparent; color:var(--mut)}
+  .segb.on{background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .primary{flex:1; padding:14px 0; border-radius:11px; border:none; cursor:pointer; background:var(--ink); color:#fff; font-size:15px; font-weight:700}
+  .danger{padding:14px 20px; border-radius:11px; border:1px solid var(--line); cursor:pointer; background:#fff; color:var(--seal); font-size:15px; font-weight:700}
+  .switch{width:44px; height:26px; border-radius:999px; border:none; cursor:pointer; flex-shrink:0; position:relative; transition:background .15s}
+  .switch>span{position:absolute; top:3px; width:20px; height:20px; border-radius:999px; background:#fff; transition:left .15s}
+  .cbrow{display:flex; align-items:center; gap:10px; padding:4px 0 6px; cursor:pointer; font-size:14px}
+  .errbox{padding:24px}
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">読み込み中…</div></div>
+<div id="overlay"></div>
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- ストレージ（window.storage と localStorage の両方に保存） ---------- */
+  var KEY = 'freefund:v1';
+  var SYNC_OBJ = !!window.storage;           // 端末間同期用（あれば）
+  var LS_OK = false;                          // localStorage が使えるか
+  try { window.localStorage.setItem('freefund:t','1'); LS_OK = (window.localStorage.getItem('freefund:t')==='1'); window.localStorage.removeItem('freefund:t'); } catch(e){ LS_OK = false; }
+  var saveMode = 'checking';                  // 'sync' | 'local' | 'none'（起動時のチェックで確定）
+
+  function saveRaw(str){
+    try{ if(SYNC_OBJ) Promise.resolve(window.storage.set(KEY, str)); }catch(e){}
+    try{ if(LS_OK) window.localStorage.setItem(KEY, str); }catch(e){}
+  }
+  function loadRaw(cb){
+    var lsVal = null;
+    try{ if(LS_OK) lsVal = window.localStorage.getItem(KEY); }catch(e){}
+    if(SYNC_OBJ){
+      try{
+        Promise.resolve(window.storage.get(KEY)).then(function(r){
+          var v = (r && r.value != null) ? r.value : null;
+          cb(v != null ? v : lsVal);           // 同期側にあればそれを優先、無ければ端末保存
+        }, function(){ cb(lsVal); });
+        return;
+      }catch(e){ cb(lsVal); return; }
+    }
+    cb(lsVal);
+  }
+  // 実際に書いて読めるかを試して保存モードを判定
+  function saveProbe(cb){
+    var t = 'p'+Date.now(), pk = 'freefund:probe';
+    var lsWorks = false;
+    try{ if(LS_OK){ window.localStorage.setItem(pk, t); lsWorks = (window.localStorage.getItem(pk)===t); window.localStorage.removeItem(pk); } }catch(e){}
+    if(SYNC_OBJ){
+      try{
+        Promise.resolve(window.storage.set(pk, t)).then(function(){ return window.storage.get(pk); }).then(function(r){
+          cb((r && r.value===t) ? 'sync' : (lsWorks ? 'local' : 'none'));
+        }, function(){ cb(lsWorks ? 'local' : 'none'); });
+        return;
+      }catch(e){ cb(lsWorks ? 'local' : 'none'); return; }
+    }
+    cb(lsWorks ? 'local' : 'none');
+  }
+
+  /* ---------- トークン ---------- */
+  var C = { paper:'#F1F0EA', card:'#fff', ink:'#26241E', mut:'#8B867B', line:'#E4E2DA', seal:'#C4402E', pos:'#3E7C5A', chip:'#EAE8E0' };
+  var GROUPS = {
+    food:          { label:'食費枠',   color:'#C0706F', soft:'#F4E0DF' },
+    shopping:      { label:'買い物枠', color:'#CE9440', soft:'#F6E8CE' },
+    entertainment: { label:'娯楽枠',   color:'#6E8FC4', soft:'#DFE7F4' },
+    other:         { label:'その他',   color:'#94908A', soft:'#E9E7E1' }
+  };
+  var GORDER = ['food','shopping','entertainment','other'];
+
+  /* ---------- ユーティリティ ---------- */
+  function yen(n){ return '¥' + Math.round(Number(n)||0).toLocaleString('ja-JP'); }
+  function yenS(n){ n=Number(n)||0; return (n<0?'−':'+') + '¥' + Math.round(Math.abs(n)).toLocaleString('ja-JP'); }
+  function uid(){ return Math.random().toString(36).slice(2,9); }
+  function pad(n){ n=String(n); return n.length<2 ? '0'+n : n; }
+  function isoOf(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+  function todayISO(){ return isoOf(new Date()); }
+  function numOnly(s){ var v=String(s).replace(/[^\d]/g,''); return v===''?'':parseInt(v,10); }
+  function numStr(s){ var v=numOnly(s); return v===''?'':String(v); }
+  function signed(list){ var a=0; for(var i=0;i<list.length;i++){ a += list[i].type==='income'?list[i].amount:-list[i].amount; } return a; }
+  function applyToFF(s, categoryId, amount, dir){
+    if(!categoryId) return;
+    var c = find(s.freeFund.categories, function(x){ return x.id===categoryId; });
+    if(c) c.spent = Math.max(0, (c.spent||0) + dir*amount);
+  }
+  function find(arr, fn){ for(var i=0;i<arr.length;i++){ if(fn(arr[i])) return arr[i]; } return null; }
+  function filter(arr, fn){ var o=[]; for(var i=0;i<arr.length;i++){ if(fn(arr[i])) o.push(arr[i]); } return o; }
+  function sum(arr, fn){ var a=0; for(var i=0;i<arr.length;i++){ a += fn(arr[i]); } return a; }
+
+  /* ---------- 初期データ ---------- */
+  function seed(){
+    var _cy=new Date(); var _curYM=_cy.getFullYear()+'-'+pad(_cy.getMonth()+1);
+    function cat(g,n,b,sp){ return { id:uid(), group:g, name:n, budget:b, spent:sp }; }
+    function rec(l,t,a,d,v){ return { id:uid(), label:l, type:t, amount:a, day:d, active:true, categoryId:null, variable:!!v, interval:1, startYM:_curYM }; }
+    return {
+      version:2, startingBalance:101563, entries:[], skippedRecurring:{},
+      recurring:[
+        rec('家賃','expense',61000,25), rec('Softbank','expense',9088,25,true), rec('Claude','expense',3400,25),
+        rec('SoftbankBB','expense',4763,8), rec('電気','expense',4391,8,true), rec('Netflix','expense',1590,29),
+        rec('iCloud','expense',150,28), rec('nosh','expense',7112,28)
+      ],
+      freeFund:{ actualStart:110000, categories:[
+        cat('food','お米',4000,0), cat('food','プロテイン',4000,3939), cat('food','豆乳',1320,480),
+        cat('food','ザバスミルク',3134,0), cat('food','夕食惣菜',6000,300), cat('food','デキストリン',1000,0),
+        cat('food','外食',15000,1000), cat('shopping','Amazon',15000,10577), cat('shopping','日用品',5000,0),
+        cat('entertainment','娯楽・交際費',30000,15000), cat('entertainment','たばこ',7500,6600), cat('other','その他',0,8960)
+      ]}
+    };
+  }
+  function migrate(s){
+    if(!s || typeof s!=='object') return seed();
+    if(!s.version || s.version < 2){
+      var dayFor = {'家賃':25,'Softbank':25,'SoftbankBB':8,'Netflix':29,'iCloud':28,'Claude':25,'nosh':28,'電気':8};
+      s.recurring = (s.fixed||[]).map(function(f){ return { id:f.id||uid(), label:f.label, type:'expense', amount:f.amount, day:dayFor[f.label]||1, active:true, categoryId:null }; });
+      delete s.fixed;
+      s.skippedRecurring = s.skippedRecurring || {};
+      (s.freeFund && s.freeFund.categories || []).forEach(function(c){ delete c.logs; });
+      s.entries = (s.entries||[]).map(function(e){ if(e.categoryId===undefined) e.categoryId=null; return e; });
+      s.version = 2;
+    }
+    if(!s.skippedRecurring) s.skippedRecurring = {};
+    if(!s.recurring) s.recurring = [];
+    if(!s.entries) s.entries = [];
+    var _mcy=new Date(); var _mCurYM=_mcy.getFullYear()+'-'+pad(_mcy.getMonth()+1);
+    s.recurring.forEach(function(r){ if(r.variable===undefined) r.variable=false; if(r.interval===undefined||r.interval<1) r.interval=1; if(r.startYM===undefined) r.startYM=_mCurYM; });
+    return s;
+  }
+
+  /* ---------- 状態 ---------- */
+  var state = null, tab = 'free', sheet = null;
+  var _d = new Date();
+  var viewYM = { y:_d.getFullYear(), m:_d.getMonth() };
+  function ymStr(){ return viewYM.y + '-' + pad(viewYM.m+1); }
+
+  function persist(s){ saveRaw(JSON.stringify(s)); }
+  function update(fn){ try{ fn(state); }catch(e){} persist(state); render(); }
+
+  /* ---------- 起動 ---------- */
+  function boot(){
+    // まず初期表示（この時点では保存しない＝既存データを絶対に消さない）
+    state = migrate(seed());
+    render();
+    saveProbe(function(mode){ saveMode = mode; render(); });   // 保存が本当に効くか判定して表示に反映
+    var applied = false;
+    loadRaw(function(raw){
+      if(applied) return; applied = true;
+      var s = null;
+      try{ if(raw != null) s = JSON.parse(raw); }catch(e){}
+      if(s && typeof s==='object' && s.freeFund){
+        state = migrate(s); render();       // 保存済みデータを採用
+      } else {
+        persist(state);                      // 本当に空のときだけ初期データを保存
+      }
+    });
+  }
+
+  /* ---------- 小さな要素ヘルパー ---------- */
+  function el(tag, attrs){
+    var n = document.createElement(tag), i, k;
+    if(attrs){
+      for(k in attrs){ if(!attrs.hasOwnProperty(k)) continue;
+        var v = attrs[k]; if(v==null) continue;
+        if(k==='class') n.className = v;
+        else if(k==='style') n.setAttribute('style', v);
+        else if(k==='html') n.innerHTML = v;
+        else if(k.substr(0,2)==='on' && typeof v==='function') n.addEventListener(k.substr(2).toLowerCase(), v);
+        else if(k==='value') n.value = v;
+        else if(k==='checked') n.checked = !!v;
+        else n.setAttribute(k, v);
+      }
+    }
+    for(i=2;i<arguments.length;i++){ addKids(n, arguments[i]); }
+    return n;
+  }
+  function addKids(n, kid){
+    if(kid==null || kid===false || kid===true) return;
+    if(Object.prototype.toString.call(kid)==='[object Array]'){ for(var i=0;i<kid.length;i++) addKids(n, kid[i]); return; }
+    n.appendChild(typeof kid==='object' ? kid : document.createTextNode(String(kid)));
+  }
+  function stitle(t){ return el('div',{'class':'stitle'}, t); }
+  function field(label, node){ return el('div',{'class':'field'}, el('div',{'class':'flabel'}, label), node); }
+
+  /* ---------- レンダリング ---------- */
+  function render(){
+    var app = document.getElementById('app');
+    app.innerHTML = '';
+    if(!state){ app.appendChild(el('div',{'class':'loading'}, '読み込み中…')); return; }
+    app.appendChild(header());
+    var main = el('div',{'class':'main'});
+    if(tab==='free') main.appendChild(freeView());
+    else if(tab==='calendar') main.appendChild(calendarView());
+    else main.appendChild(recurringView());
+    app.appendChild(main);
+    app.appendChild(tabbar());
+  }
+
+  function setTab(t){ tab = t; if(t==='calendar') ensureRecurring(ymStr()); render(); }
+  function stepMonth(d){ var m=viewYM.m+d, y=viewYM.y; if(m<0){m=11;y--;} if(m>11){m=0;y++;} viewYM={y:y,m:m}; ensureRecurring(ymStr()); render(); }
+
+  function header(){
+    var eyebrow = 'MONEY', title;
+    if(tab==='free') title = '自由資金';
+    else if(tab==='calendar'){ eyebrow = 'カレンダー'; title = viewYM.y+'年 '+(viewYM.m+1)+'月'; }
+    else title = '固定費';
+    var h = el('div',{'class':'hdr'},
+      el('div',{},
+        el('div',{'class':'eyebrow'}, eyebrow),
+        el('div',{'class':(tab==='calendar'?'num':''),'style':'font-size:22px;font-weight:700;letter-spacing:-.01em'}, title)
+      )
+    );
+    if(tab==='calendar'){
+      var nowD = new Date();
+      var curYM = nowD.getFullYear()+'-'+pad(nowD.getMonth()+1);
+      var right = el('div',{'style':'display:flex;align-items:center;gap:4px'});
+      if(ymStr()!==curYM){
+        right.appendChild(el('button',{'class':'iconbtn','style':'width:auto;padding:0 12px;font-size:12px;font-weight:700','aria-label':'今月へ','onclick':function(){ viewYM={y:nowD.getFullYear(),m:nowD.getMonth()}; ensureRecurring(ymStr()); render(); }}, '今月'));
+      }
+      right.appendChild(el('button',{'class':'iconbtn','aria-label':'前の月','onclick':function(){stepMonth(-1);}}, '‹'));
+      right.appendChild(el('button',{'class':'iconbtn','aria-label':'次の月','onclick':function(){stepMonth(1);}}, '›'));
+      h.appendChild(right);
+    } else {
+      var chipText = saveMode==='sync' ? '● 同期オン' : saveMode==='local' ? '● 保存 有効' : saveMode==='none' ? '○ 保存 未対応' : '○ 確認中';
+      var chipCol = (saveMode==='sync'||saveMode==='local') ? C.pos : C.mut;
+      h.appendChild(el('div',{'style':'font-size:11px;font-weight:600;padding:5px 10px;border-radius:999px;cursor:pointer;background:'+C.chip+';color:'+chipCol,'onclick':function(){ openSheet({kind:'backup'}); }},
+        chipText+' ⋯'));
+    }
+    return h;
+  }
+
+  function tabbar(){
+    var items = [ {k:'free',t:'自由資金',i:'◎'}, {k:'calendar',t:'カレンダー',i:'▦'}, {k:'recurring',t:'固定費',i:'⟳'} ];
+    var inner = el('div',{});
+    items.forEach(function(it){
+      inner.appendChild(el('button',{'class':'tabbtn'+(tab===it.k?' on':''),'onclick':function(){setTab(it.k);}},
+        el('span',{'class':'ic'}, it.i), el('span',{'class':'tt'}, it.t)));
+    });
+    return el('div',{'class':'tabbar'}, inner);
+  }
+
+  /* ---------- 自由資金 ---------- */
+  function freeView(){
+    var ff = state.freeFund;
+    var totalSpent = sum(ff.categories, function(c){ return c.spent||0; });
+    var remaining = ff.actualStart - totalSpent;
+    var usedPct = ff.actualStart>0 ? Math.min(100, totalSpent/ff.actualStart*100) : 0;
+    var wrap = el('div',{});
+
+    var hero = el('div',{'class':'card','style':'padding:20px 20px 18px;margin-top:4px','onclick':function(){ openSheet({kind:'actualStart'}); }},
+      el('div',{'class':'between'},
+        el('span',{'class':'eyebrow'}, '今月使える残り'),
+        el('span',{'style':'font-size:11px;color:'+C.mut}, '元手 '+yen(ff.actualStart)+' ›')),
+      el('div',{'class':'num','style':'font-size:40px;font-weight:700;letter-spacing:-.02em;margin-top:2px;color:'+(remaining<0?C.seal:C.ink)}, yen(remaining)),
+      el('div',{'class':'bar','style':'height:8px;background:'+C.line+';margin-top:14px'},
+        el('span',{'style':'width:'+usedPct+'%;background:'+(remaining<0?C.seal:C.ink)})),
+      el('div',{'class':'between','style':'margin-top:8px;font-size:12px;color:'+C.mut},
+        el('span',{'class':'num'}, '使用済み '+yen(totalSpent)), el('span',{}, Math.round(usedPct)+'%'))
+    );
+    wrap.appendChild(hero);
+
+    GORDER.forEach(function(g){
+      var list = filter(ff.categories, function(c){ return c.group===g; });
+      var meta = GROUPS[g];
+      var b = sum(list,function(c){return c.budget||0;}), sp = sum(list,function(c){return c.spent||0;});
+      var rem = b - sp, pct = b>0 ? Math.min(100, sp/b*100) : 0;
+      var cardEl = el('div',{'class':'card','style':'margin-top:12px'},
+        el('div',{'class':'between'},
+          el('div',{'style':'display:flex;align-items:center;gap:8px'},
+            el('span',{'style':'width:10px;height:10px;border-radius:3px;display:inline-block;background:'+meta.color}),
+            el('span',{'style':'font-weight:700'}, meta.label)),
+          el('div',{'style':'text-align:right'},
+            el('div',{'class':'num','style':'font-weight:700;color:'+(rem<0?C.seal:C.ink)}, yen(rem)),
+            el('div',{'class':'num','style':'font-size:11px;color:'+C.mut}, '予算 '+yen(b)))),
+        el('div',{'class':'bar','style':'height:6px;margin-top:12px;background:'+meta.soft},
+          el('span',{'style':'width:'+pct+'%;background:'+meta.color}))
+      );
+      var rows = el('div',{'style':'margin-top:10px'});
+      list.forEach(function(c){
+        rows.appendChild(el('div',{'style':'display:flex;align-items:center;gap:8px;padding:9px 0;border-top:1px solid '+C.line},
+          el('div',{'style':'flex:1;min-width:0'},
+            el('div',{'style':'font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'}, c.name),
+            el('div',{'class':'num','style':'font-size:11px;color:'+C.mut}, yen(c.spent)+' / '+yen(c.budget))),
+          el('button',{'class':'pill','style':'background:'+meta.color,'onclick':function(){ openSheet({kind:'spend',id:c.id}); }}, '＋ 記録'),
+          el('button',{'class':'ghost','aria-label':'編集','onclick':function(){ openSheet({kind:'category',id:c.id}); }}, '✎')
+        ));
+      });
+      rows.appendChild(el('button',{'class':'addrow','onclick':function(){ openSheet({kind:'category',group:g}); }}, '＋ '+meta.label.replace('枠','')+'のカテゴリを追加'));
+      cardEl.appendChild(rows);
+      wrap.appendChild(cardEl);
+    });
+    wrap.appendChild(el('div',{'style':'height:8px'}));
+    return wrap;
+  }
+
+  /* ---------- カレンダー ---------- */
+  function monthsBetween(aYM, bYM){ var a=aYM.split('-'), b=bYM.split('-'); return (parseInt(b[0],10)*12+parseInt(b[1],10)) - (parseInt(a[0],10)*12+parseInt(a[1],10)); }
+  function scheduledFor(r, ym){ var startYM = r.startYM || ym; var diff = monthsBetween(startYM, ym); var iv = r.interval||1; return diff>=0 && (diff % iv)===0; }
+  function entryExistsFor(id, ym){ for(var i=0;i<state.entries.length;i++){ if(state.entries[i].recurringId===id && state.entries[i].ym===ym) return true; } return false; }
+  function cadenceText(r){ return (r.interval>1 ? ('毎'+r.interval+'ヶ月 ') : '毎月 ') + r.day + ' 日'; }
+
+  function ensureRecurring(ym){
+    var nowD = new Date();
+    var curYM = nowD.getFullYear() + '-' + pad(nowD.getMonth()+1);
+    if(ym < curYM) return; // 過去の月は自動生成しない（残高が狂わないように）
+    var parts = ym.split('-'), Y = +parts[0], M = +parts[1];
+    var dim = new Date(Y, M, 0).getDate();
+    var adds = [];
+    filter(state.recurring||[], function(r){ return r.active; }).forEach(function(r){
+      var skipped = state.skippedRecurring[r.id+'|'+ym];
+      if(scheduledFor(r, ym) && !entryExistsFor(r.id, ym) && !skipped){
+        var day = Math.min(r.day||1, dim);
+        adds.push({ id:uid(), date:ym+'-'+pad(day), type:r.type, label:r.label, amount:r.amount, categoryId:null, recurringId:r.id, ym:ym, variable:!!r.variable });
+      }
+    });
+    if(adds.length){
+      for(var j=0;j<adds.length;j++){ state.entries.push(adds[j]); }
+      persist(state);
+    }
+  }
+
+  function calendarView(){
+    var y = viewYM.y, m = viewYM.m, ym = ymStr(), prefix = ym+'-';
+    var dim = new Date(y, m+1, 0).getDate();
+    var firstDow = new Date(y, m, 1).getDay();
+    var todayStr = todayISO();
+    var balance = state.startingBalance + signed(filter(state.entries, function(e){ return e.date <= todayStr; }));
+    var monthEntries = filter(state.entries, function(e){ return e.date.indexOf(prefix)===0; }).sort(function(a,b){ return a.date<b.date?-1:1; });
+    var income = sum(filter(monthEntries,function(e){return e.type==='income';}), function(e){return e.amount;});
+    var expense = sum(filter(monthEntries,function(e){return e.type==='expense';}), function(e){return e.amount;});
+
+    var now = new Date();
+    var isCurrent = now.getFullYear()===y && now.getMonth()===m;
+    var projEnd = null;
+    if(isCurrent){
+      var dom = now.getDate();
+      var eom = prefix + pad(dim);
+      var baseEnd = state.startingBalance + signed(filter(state.entries, function(e){ return e.date <= eom; }));
+      var varSpent = sum(filter(monthEntries,function(e){return e.type==='expense' && !e.recurringId;}), function(e){return e.amount;});
+      var avgDaily = dom>0 ? varSpent/dom : 0;
+      projEnd = Math.round(baseEnd - avgDaily*Math.max(0, dim-dom));
+    }
+    var ffRem = state.freeFund.actualStart - sum(state.freeFund.categories, function(c){return c.spent||0;});
+
+    var byDate = {};
+    monthEntries.forEach(function(e){ if(!byDate[e.date]) byDate[e.date]=[]; byDate[e.date].push(e); });
+
+    var wrap = el('div',{});
+
+    // 残高＋サマリー
+    var summary = el('div',{'class':'card','style':'padding:16px 18px;margin-top:4px'},
+      el('span',{'class':'eyebrow'}, '口座残高'),
+      el('div',{'class':'num','style':'font-size:30px;font-weight:700;letter-spacing:-.02em','onclick':function(){ openSheet({kind:'balance'}); }},
+        yen(balance)+' ', el('span',{'style':'font-size:12px;color:'+C.mut+';font-weight:500'}, '›')),
+      el('div',{'style':'display:flex;gap:18px;margin-top:8px;font-size:12px'},
+        el('span',{'class':'num','style':'color:'+C.pos}, '収入 '+yen(income)),
+        el('span',{'class':'num','style':'color:'+C.seal}, '支出 '+yen(expense)),
+        el('span',{'class':'num','style':'color:'+C.mut}, '差引 '+yenS(income-expense)))
+    );
+    var sumRow = el('div',{'style':'border-top:1px solid '+C.line+';margin-top:12px;padding-top:12px;display:flex;gap:20px'});
+    if(isCurrent){
+      sumRow.appendChild(el('div',{},
+        el('div',{'style':'font-size:11px;color:'+C.mut}, '予測月末残高'),
+        el('div',{'class':'num','style':'font-size:17px;font-weight:700;color:'+(projEnd<0?C.seal:C.ink)}, yen(projEnd)),
+        el('div',{'style':'font-size:10px;color:'+C.mut}, '現在のペース')));
+    }
+    sumRow.appendChild(el('div',{},
+      el('div',{'style':'font-size:11px;color:'+C.mut}, '自由資金の残り'),
+      el('div',{'class':'num','style':'font-size:17px;font-weight:700;color:'+(ffRem<0?C.seal:C.ink)}, yen(ffRem)),
+      el('div',{'style':'font-size:10px;color:'+C.mut}, '枠の残額')));
+    summary.appendChild(sumRow);
+    wrap.appendChild(summary);
+
+    // グリッド
+    var wknames = ['日','月','火','水','木','金','土'];
+    var wk = el('div',{'class':'wk'});
+    wknames.forEach(function(w,i){ wk.appendChild(el('div',{'style':'font-size:11px;font-weight:600;padding:2px 0;color:'+(i===0?C.seal:(i===6?'#6E8FC4':C.mut))}, w)); });
+    var grid = el('div',{'class':'grid7'});
+    var c, blank;
+    for(blank=0;blank<firstDow;blank++){ grid.appendChild(el('div',{})); }
+    for(c=1;c<=dim;c++){
+      (function(d){
+        var date = prefix+pad(d);
+        var es = byDate[date] || [];
+        var net = signed(es);
+        var today = todayISO()===date;
+        var cell = el('button',{'class':'cell','style':'background:'+(today?C.ink:(es.length?C.paper:'transparent')),'onclick':function(){ openSheet({kind:'day',date:date}); }},
+          el('span',{'class':'num','style':'font-size:12px;font-weight:600;color:'+(today?'#fff':C.ink)}, d));
+        if(es.length){
+          var k = Math.round(Math.abs(net)/1000);
+          cell.appendChild(el('span',{'class':'num','style':'font-size:9px;line-height:1.1;color:'+(today?'#fff':(net<0?C.seal:C.pos))}, (net<0?'−':'+')+(k>0?k+'k':'…')));
+        }
+        grid.appendChild(cell);
+      })(c);
+    }
+    var gridTitle = el('div',{'class':'num','style':'text-align:center;font-weight:700;font-size:13px;color:'+C.mut+';padding:2px 0 8px'}, viewYM.y+'年 '+(viewYM.m+1)+'月');
+    wrap.appendChild(el('div',{'class':'card','style':'padding:12px 10px;margin-top:12px'}, gridTitle, wk, grid));
+
+    // この月に入っていない固定費（前月オフ・周期外・ズレなど）をこの月だけ追加
+    var missing = filter(state.recurring||[], function(r){ return r.active && !entryExistsFor(r.id, ym); });
+    if(missing.length){
+      var addSec = el('div',{'style':'margin-top:16px'},
+        el('div',{'class':'eyebrow','style':'margin-bottom:8px'}, 'この月に入れる固定費'),
+        el('div',{'style':'font-size:11px;color:'+C.mut+';margin-bottom:8px'}, '周期や前月オフで自動では入っていないものを、この月だけ追加できます。'));
+      missing.forEach(function(r){
+        addSec.appendChild(el('div',{'class':'entry','style':'cursor:default'},
+          el('div',{'style':'flex:1;min-width:0'},
+            el('div',{'style':'font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'}, r.label),
+            el('div',{'style':'font-size:11px;color:'+C.mut}, cadenceText(r)+(r.variable?'・変動':''))),
+          el('div',{'class':'num','style':'font-size:12px;color:'+C.mut+';margin-right:4px'}, (r.variable?'約':'')+yen(r.amount)),
+          el('button',{'class':'pill','style':'background:'+C.pos,'onclick':(function(rr){ return function(){
+            update(function(s){
+              delete s.skippedRecurring[rr.id+'|'+ym];
+              var dd = Math.min(rr.day||1, dim);
+              s.entries.push({ id:uid(), date:ym+'-'+pad(dd), type:rr.type, label:rr.label, amount:rr.amount, categoryId:null, recurringId:rr.id, ym:ym, variable:!!rr.variable });
+            });
+          }; })(r)}, '＋ この月に')));
+      });
+      wrap.appendChild(addSec);
+    }
+
+    // 月の記録
+    var head = el('div',{'class':'between','style':'margin-bottom:8px'},
+      el('span',{'class':'eyebrow'}, 'この月の記録'),
+      el('button',{'class':'pill','style':'background:'+C.ink,'onclick':function(){ openSheet({kind:'entry',date:(isCurrent?todayISO():prefix+'01')}); }}, '＋ 追加'));
+    var listWrap = el('div',{'style':'margin-top:16px'}, head);
+    if(monthEntries.length===0){
+      listWrap.appendChild(el('div',{'class':'card','style':'padding:22px 16px;text-align:center;color:'+C.mut+';font-size:13px'}, 'まだ記録がありません。日付をタップして追加できます。'));
+    }
+    monthEntries.forEach(function(e){
+      var cat = e.categoryId ? find(state.freeFund.categories, function(x){return x.id===e.categoryId;}) : null;
+      var tags = el('div',{'style':'display:flex;gap:6px;margin-top:2px'});
+      if(e.recurringId) tags.appendChild(el('span',{'class':'tag','style':'background:'+C.chip+';color:'+C.mut}, '定期'));
+      if(e.variable) tags.appendChild(el('span',{'class':'tag','style':'background:'+C.chip+';color:'+C.mut}, '変動'));
+      if(cat){ var gm=GROUPS[cat.group]; tags.appendChild(el('span',{'class':'tag','style':'background:'+gm.soft+';color:'+gm.color}, cat.name)); }
+      listWrap.appendChild(el('div',{'class':'entry','onclick':(function(id,date){return function(){ openSheet({kind:'entry',date:date,id:id}); };})(e.id,e.date)},
+        el('div',{'style':'width:38px;text-align:center'},
+          el('div',{'class':'num','style':'font-size:15px;font-weight:700;line-height:1'}, parseInt(e.date.slice(-2),10)),
+          el('div',{'style':'font-size:9px;color:'+C.mut}, '日')),
+        el('div',{'style':'flex:1;min-width:0'},
+          el('div',{'style':'font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'}, e.label || (e.type==='income'?'収入':'支出')),
+          tags),
+        el('div',{'class':'num','style':'font-weight:700;color:'+(e.type==='income'?C.pos:C.seal)}, (e.type==='income'?'+':'−')+yen(e.amount))
+      ));
+    });
+    wrap.appendChild(listWrap);
+    wrap.appendChild(el('div',{'style':'height:8px'}));
+    return wrap;
+  }
+
+  /* ---------- 固定費（定期テンプレート） ---------- */
+  function recurringView(){
+    var list = state.recurring || [];
+    var active = filter(list, function(r){ return r.active; });
+    var totalOut = sum(filter(active,function(r){return r.type==='expense';}), function(r){return r.amount;});
+    var totalIn = sum(filter(active,function(r){return r.type==='income';}), function(r){return r.amount;});
+    var wrap = el('div',{});
+    var top = el('div',{'class':'card','style':'padding:16px 18px;margin-top:4px'},
+      el('span',{'class':'eyebrow'}, '毎月の固定費（自動記録）'),
+      el('div',{'class':'num','style':'font-size:30px;font-weight:700;letter-spacing:-.02em'}, yen(totalOut)));
+    if(totalIn>0) top.appendChild(el('div',{'class':'num','style':'font-size:12px;color:'+C.pos+';margin-top:4px'}, '定期収入 '+yen(totalIn)));
+    top.appendChild(el('div',{'style':'font-size:12px;color:'+C.mut+';margin-top:6px'}, '有効なものは毎月その日にカレンダーへ自動で入ります。'));
+    wrap.appendChild(top);
+
+    var body = el('div',{'style':'margin-top:12px'});
+    if(list.length===0){
+      body.appendChild(el('div',{'class':'card','style':'padding:22px 16px;text-align:center;color:'+C.mut+';font-size:13px'}, 'まだありません。家賃やサブスクを登録すると毎月自動で記録されます。'));
+    }
+    list.forEach(function(r){
+      var sw = el('button',{'class':'switch','aria-label':(r.active?'停止':'有効化'),'style':'background:'+(r.active?C.pos:C.line),'onclick':(function(id){return function(){ update(function(s){ var t=find(s.recurring,function(x){return x.id===id;}); t.active=!t.active; }); };})(r.id)},
+        el('span',{'style':'left:'+(r.active?'21px':'3px')}));
+      body.appendChild(el('div',{'class':'entry','style':'opacity:'+(r.active?1:0.5)},
+        sw,
+        el('div',{'style':'flex:1;min-width:0','onclick':(function(id){return function(){ openSheet({kind:'recurring',id:id}); };})(r.id)},
+          el('div',{'style':'font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis'}, r.label),
+          el('div',{'style':'font-size:11px;color:'+C.mut}, cadenceText(r)+(r.type==='income'?'・収入':'')+(r.variable?'・変動':''))),
+        el('div',{'class':'num','style':'font-weight:700;color:'+(r.type==='income'?C.pos:C.ink),'onclick':(function(id){return function(){ openSheet({kind:'recurring',id:id}); };})(r.id)},
+          (r.variable?'約':'')+(r.type==='income'?'+':'')+yen(r.amount))
+      ));
+    });
+    body.appendChild(el('button',{'class':'addrow','onclick':function(){ openSheet({kind:'recurring'}); }}, '＋ 固定費を追加'));
+    body.appendChild(el('button',{'class':'addrow','style':'margin-top:16px','onclick':function(){ openSheet({kind:'backup'}); }}, '☁ データのバックアップ・復元'));
+    wrap.appendChild(body);
+    wrap.appendChild(el('div',{'style':'height:8px'}));
+    return wrap;
+  }
+
+  /* ---------- ボトムシート ---------- */
+  function openSheet(o){ sheet = o; renderSheet(); }
+  function closeSheet(){ sheet = null; document.getElementById('overlay').innerHTML = ''; }
+
+  function copyText(str, btn, ta){
+    function ok(){ var o=btn.textContent; btn.textContent='コピーしました'; setTimeout(function(){ btn.textContent=o; },1500); }
+    function sel(){ try{ ta.removeAttribute('readonly'); ta.focus(); ta.select(); document.execCommand('copy'); ta.setAttribute('readonly','readonly'); ok(); }catch(e){} }
+    try{
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(str).then(ok, sel); }
+      else sel();
+    }catch(e){ sel(); }
+  }
+  function sheetBackup(){
+    var box = el('div',{}, stitle('バックアップ・復元'));
+    box.appendChild(el('div',{'style':'font-size:12px;color:'+C.mut+';margin-bottom:8px'},
+      saveMode==='sync' ? '自動保存＋端末間同期が有効です。' :
+      saveMode==='local' ? 'この端末に自動保存されます（他の端末とは同期しません）。' :
+      'この端末では自動保存が使えません。下の「書き出し」でテキストを保存し、次回「復元」で戻してください。'));
+    var probe = el('div',{'style':'font-size:12px;color:'+C.mut+';margin-bottom:14px'}, '保存の動作チェック: 確認中…');
+    box.appendChild(probe);
+    saveProbe(function(mode){
+      saveMode = mode;
+      var msg = mode==='sync' ? 'OK（自動保存＋同期）' : mode==='local' ? 'OK（この端末に自動保存）' : 'NG（自動保存不可。書き出しで手動保存を）';
+      probe.textContent = '保存の動作チェック: ' + msg;
+      probe.style.color = (mode==='none') ? C.seal : C.pos;
+    });
+
+    var ta = el('textarea',{'class':'input','style':'height:110px;font-size:12px;font-family:monospace;resize:vertical','readonly':'readonly'});
+    ta.value = JSON.stringify(state);
+    var copyBtn = el('button',{'class':'primary','style':'margin-top:8px'}, 'テキストをコピー');
+    copyBtn.addEventListener('click', function(){ copyText(ta.value, copyBtn, ta); });
+    box.appendChild(field('書き出し（このテキストをメモ等に保存しておくと、いつでも復元できます）', ta));
+    box.appendChild(copyBtn);
+
+    box.appendChild(el('div',{'style':'height:18px'}));
+    var imp = el('textarea',{'class':'input','style':'height:90px;font-size:12px;font-family:monospace;resize:vertical','placeholder':'書き出したテキストをここに貼り付け'});
+    var impMsg = el('div',{'style':'font-size:12px;margin-top:6px;color:'+C.seal});
+    var impBtn = el('button',{'class':'danger','style':'margin-top:8px;width:100%'}, '読み込んで置き換える');
+    impBtn.addEventListener('click', function(){
+      var s=null; try{ s=JSON.parse(imp.value); }catch(e){}
+      if(!s || typeof s!=='object' || !s.freeFund){ impMsg.textContent='テキストが正しくありません。'; return; }
+      state = migrate(s); persist(state); closeSheet(); render();
+    });
+    box.appendChild(field('復元（貼り付けて置き換え）', imp));
+    box.appendChild(impBtn);
+    box.appendChild(impMsg);
+
+    var forceBtn = el('button',{'class':'addrow','style':'margin-top:18px','onclick':function(){ persist(state); var o=forceBtn.textContent; forceBtn.textContent='保存しました'; setTimeout(function(){ forceBtn.textContent=o; },1500); }}, '今すぐ保存する');
+    box.appendChild(forceBtn);
+    return box;
+  }
+  function renderSheet(){
+    var ov = document.getElementById('overlay'); ov.innerHTML = '';
+    if(!sheet) return;
+    var content;
+    switch(sheet.kind){
+      case 'day': content = sheetDay(); break;
+      case 'entry': content = sheetEntry(); break;
+      case 'spend': content = sheetSpend(); break;
+      case 'category': content = sheetCategory(); break;
+      case 'recurring': content = sheetRecurring(); break;
+      case 'balance': content = sheetNumber('口座残高（スタート額）', state.startingBalance, function(v){ update(function(s){ s.startingBalance=v; }); }); break;
+      case 'backup': content = sheetBackup(); break;
+      case 'actualStart': content = sheetNumber('自由資金の元手（実数）', state.freeFund.actualStart, function(v){ update(function(s){ s.freeFund.actualStart=v; }); }); break;
+      default: content = el('div',{});
+    }
+    var sh = el('div',{'class':'sheet','onclick':function(e){ e.stopPropagation(); }}, el('div',{'class':'handle'}), content);
+    ov.appendChild(el('div',{'class':'sheetbg','onclick':closeSheet}, sh));
+  }
+
+  function segmented(current, onchange){
+    var opts = [ {v:'expense',l:'支出',c:C.seal}, {v:'income',l:'収入',c:C.pos} ];
+    var box = el('div',{'class':'seg'});
+    var btns = {};
+    opts.forEach(function(o){
+      var b = el('button',{'class':'segb'+(current===o.v?' on':''),'style':current===o.v?'color:'+o.c:'','onclick':function(){ set(o.v); }}, o.l);
+      btns[o.v]=b; box.appendChild(b);
+    });
+    function set(v){ current=v; opts.forEach(function(o){ btns[o.v].className='segb'+(v===o.v?' on':''); btns[o.v].style.color = v===o.v?o.c:''; }); onchange(v); }
+    box._get = function(){ return current; };
+    return box;
+  }
+
+  function catSelect(val){
+    var sel = el('select',{'class':'input'});
+    sel.appendChild(el('option',{'value':''}, 'なし（枠に反映しない）'));
+    GORDER.forEach(function(g){
+      var og = el('optgroup',{'label':GROUPS[g].label});
+      filter(state.freeFund.categories, function(c){return c.group===g;}).forEach(function(c){ og.appendChild(el('option',{'value':c.id}, c.name)); });
+      sel.appendChild(og);
+    });
+    sel.value = val || '';
+    return sel;
+  }
+
+  function sheetDay(){
+    var es = filter(state.entries, function(e){ return e.date===sheet.date; }).sort(function(a,b){ return a.type<b.type?-1:1; });
+    var parts = sheet.date.split('-');
+    var box = el('div',{}, stitle(parseInt(parts[1],10)+'月'+parseInt(parts[2],10)+'日'));
+    if(es.length===0) box.appendChild(el('div',{'style':'color:'+C.mut+';font-size:13px;padding:4px 0 14px'}, '記録はありません。'));
+    es.forEach(function(e){
+      box.appendChild(el('div',{'style':'display:flex;align-items:center;gap:10px;padding:10px 0;border-top:1px solid '+C.line,'onclick':(function(id){return function(){ openSheet({kind:'entry',date:sheet.date,id:id}); };})(e.id)},
+        el('div',{'style':'flex:1;font-size:14px'}, e.label || (e.type==='income'?'収入':'支出')),
+        el('div',{'class':'num','style':'font-weight:700;color:'+(e.type==='income'?C.pos:C.seal)}, (e.type==='income'?'+':'−')+yen(e.amount))));
+    });
+    box.appendChild(el('button',{'class':'primary','style':'margin-top:16px','onclick':function(){ openSheet({kind:'entry',date:sheet.date}); }}, '＋ この日に追加'));
+    return box;
+  }
+
+  function sheetEntry(){
+    var ex = sheet.id ? find(state.entries, function(e){return e.id===sheet.id;}) : null;
+    var type = ex ? ex.type : 'expense';
+    var baseDate = ex ? ex.date : sheet.date;
+    var bp = baseDate.split('-');
+    var baseDim = new Date(parseInt(bp[0],10), parseInt(bp[1],10), 0).getDate();
+    var labelIn = el('input',{'class':'input','value':ex?ex.label:'','placeholder':'例）家賃 / 副業'});
+    var amtIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?ex.amount:'','placeholder':'0','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var dayIn = el('input',{'class':'input num','inputmode':'numeric','value':parseInt(bp[2],10),'oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var sel = catSelect(ex?ex.categoryId:null);
+    var catField = field('自由資金の枠（連動）', sel);
+    catField.style.display = type==='expense'?'':'none';
+    var seg = segmented(type, function(v){ type=v; catField.style.display = v==='expense'?'':'none'; });
+
+    function newDate(){ var d=numOnly(dayIn.value)||1; if(d<1)d=1; if(d>baseDim)d=baseDim; return bp[0]+'-'+bp[1]+'-'+pad(d); }
+    function save(){
+      var amt = numOnly(amtIn.value); if(!amt) return;
+      var catId = sel.value || null;
+      var nd = newDate();
+      update(function(s){
+        if(ex){
+          var t = find(s.entries, function(e){return e.id===ex.id;});
+          if(t.type==='expense') applyToFF(s, t.categoryId, t.amount, -1);
+          t.type=type; t.label=labelIn.value.replace(/^\s+|\s+$/g,''); t.amount=amt; t.categoryId = type==='expense'?catId:null; t.date=nd;
+          if(t.type==='expense') applyToFF(s, t.categoryId, t.amount, +1);
+        } else {
+          s.entries.push({ id:uid(), date:nd, type:type, label:labelIn.value.replace(/^\s+|\s+$/g,''), amount:amt, categoryId:type==='expense'?catId:null });
+          if(type==='expense') applyToFF(s, catId, amt, +1);
+        }
+      });
+      closeSheet();
+    }
+    function del(){
+      update(function(s){
+        var t = find(s.entries, function(e){return e.id===ex.id;});
+        if(t && t.type==='expense') applyToFF(s, t.categoryId, t.amount, -1);
+        if(t && t.recurringId) s.skippedRecurring[t.recurringId+'|'+t.ym] = true;
+        s.entries = filter(s.entries, function(e){return e.id!==ex.id;});
+      });
+      closeSheet();
+    }
+    var twoCol = el('div',{'style':'display:flex;gap:10px'},
+      el('div',{'style':'flex:2'}, field('金額', amtIn)),
+      el('div',{'style':'flex:1'}, field('日にち', dayIn)));
+    var actions = el('div',{'style':'display:flex;gap:10px;margin-top:16px'});
+    if(ex) actions.appendChild(el('button',{'class':'danger','onclick':del}, (ex.recurringId?'この月をオフ':'削除')));
+    actions.appendChild(el('button',{'class':'primary','onclick':save}, '保存'));
+    var note = (ex && ex.recurringId) ? el('div',{'style':'font-size:11px;color:'+C.mut+';margin:-4px 0 10px'}, '固定費の今月分です。金額・日にちの変更や「この月をオフ」は、この月だけに効きます（毎月のテンプレートは変わりません）。') : null;
+    return el('div',{}, stitle(ex?'記録を編集':'記録を追加'), note, seg, field('内容',labelIn), twoCol, catField, actions);
+  }
+
+  function sheetSpend(){
+    var cat = find(state.freeFund.categories, function(c){return c.id===sheet.id;});
+    var meta = GROUPS[cat.group];
+    var amtIn = el('input',{'class':'input num','inputmode':'numeric','placeholder':'0','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var memoIn = el('input',{'class':'input','placeholder':'例）コンビニ'});
+    var cb = el('input',{'type':'checkbox','checked':true,'style':'width:18px;height:18px'});
+    function save(){
+      var amt = numOnly(amtIn.value); if(!amt) return;
+      update(function(s){
+        applyToFF(s, cat.id, amt, +1);
+        if(cb.checked) s.entries.push({ id:uid(), date:todayISO(), type:'expense', label:(memoIn.value.replace(/^\s+|\s+$/g,'')||cat.name), amount:amt, categoryId:cat.id });
+      });
+      closeSheet();
+    }
+    return el('div',{},
+      el('div',{'class':'stitle'}, el('span',{'style':'color:'+meta.color}, cat.name), ' に記録'),
+      el('div',{'class':'num','style':'font-size:12px;color:'+C.mut+';margin-top:-8px;margin-bottom:8px'}, '使用済み '+yen(cat.spent)+' / 予算 '+yen(cat.budget)),
+      field('使った金額', amtIn),
+      field('メモ（任意）', memoIn),
+      el('label',{'class':'cbrow'}, cb, '今日のカレンダーにも記録する（口座残高に反映）'),
+      el('button',{'class':'primary','style':'margin-top:12px;background:'+meta.color,'onclick':save}, '記録する')
+    );
+  }
+
+  function sheetCategory(){
+    var ex = sheet.id ? find(state.freeFund.categories, function(c){return c.id===sheet.id;}) : null;
+    var group = ex ? ex.group : (sheet.group || 'food');
+    var nameIn = el('input',{'class':'input','value':ex?ex.name:'','placeholder':'例）外食'});
+    var budgetIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?ex.budget:'','placeholder':'0','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var spentIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?ex.spent:'','placeholder':'0','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var grid = el('div',{'style':'display:grid;grid-template-columns:repeat(4,1fr);gap:6px'});
+    var gbtns = {};
+    GORDER.forEach(function(g){
+      var b = el('button',{'style':gbtnStyle(g, group===g),'onclick':function(){ group=g; GORDER.forEach(function(x){ gbtns[x].setAttribute('style', gbtnStyle(x, group===x)); }); }}, GROUPS[g].label.replace('枠',''));
+      gbtns[g]=b; grid.appendChild(b);
+    });
+    function gbtnStyle(g, on){ var m=GROUPS[g]; return 'padding:9px 0;border-radius:9px;cursor:pointer;font-size:12px;font-weight:600;border:1.5px solid '+(on?m.color:C.line)+';background:'+(on?m.soft:'#fff')+';color:'+(on?m.color:C.mut); }
+    function save(){
+      if(!nameIn.value.replace(/^\s+|\s+$/g,'')) return;
+      var b = numOnly(budgetIn.value)||0, sp = numOnly(spentIn.value)||0;
+      update(function(s){
+        if(ex){ var t=find(s.freeFund.categories,function(c){return c.id===ex.id;}); t.group=group; t.name=nameIn.value.replace(/^\s+|\s+$/g,''); t.budget=b; t.spent=sp; }
+        else s.freeFund.categories.push({ id:uid(), group:group, name:nameIn.value.replace(/^\s+|\s+$/g,''), budget:b, spent:sp });
+      });
+      closeSheet();
+    }
+    function del(){ update(function(s){ s.freeFund.categories = filter(s.freeFund.categories, function(c){return c.id!==ex.id;}); }); closeSheet(); }
+    var twoCol = el('div',{'style':'display:flex;gap:10px'},
+      el('div',{'style':'flex:1'}, field('予算', budgetIn)),
+      el('div',{'style':'flex:1'}, field('使用済み', spentIn)));
+    var actions = el('div',{'style':'display:flex;gap:10px;margin-top:16px'});
+    if(ex) actions.appendChild(el('button',{'class':'danger','onclick':del}, '削除'));
+    actions.appendChild(el('button',{'class':'primary','onclick':save}, '保存'));
+    return el('div',{}, stitle(ex?'カテゴリを編集':'カテゴリを追加'), field('枠', grid), field('名前', nameIn), twoCol, actions);
+  }
+
+  function sheetRecurring(){
+    var ex = sheet.id ? find(state.recurring, function(r){return r.id===sheet.id;}) : null;
+    var type = ex ? ex.type : 'expense';
+    var labelIn = el('input',{'class':'input','value':ex?ex.label:'','placeholder':'例）家賃'});
+    var amtIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?ex.amount:'','placeholder':'0','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var dayIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?ex.day:'25','placeholder':'25','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var intIn = el('input',{'class':'input num','inputmode':'numeric','value':ex?(ex.interval||1):'1','placeholder':'1','oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    var seg = segmented(type, function(v){ type=v; });
+    var varCb = el('input',{'type':'checkbox','checked':(ex?!!ex.variable:false),'style':'width:18px;height:18px'});
+    function save(){
+      if(!labelIn.value.replace(/^\s+|\s+$/g,'')) return;
+      var amt = numOnly(amtIn.value)||0;
+      var d = numOnly(dayIn.value)||1; if(d<1)d=1; if(d>31)d=31;
+      var iv = numOnly(intIn.value)||1; if(iv<1)iv=1; if(iv>60)iv=60;
+      var vf = varCb.checked;
+      var cy=new Date(); var curYM=cy.getFullYear()+'-'+pad(cy.getMonth()+1);
+      update(function(s){
+        if(ex){ var t=find(s.recurring,function(r){return r.id===ex.id;}); t.type=type; t.label=labelIn.value.replace(/^\s+|\s+$/g,''); t.amount=amt; t.day=d; t.interval=iv; t.categoryId=null; t.variable=vf; if(!t.startYM) t.startYM=curYM; }
+        else s.recurring.push({ id:uid(), type:type, label:labelIn.value.replace(/^\s+|\s+$/g,''), amount:amt, day:d, interval:iv, active:true, categoryId:null, variable:vf, startYM:curYM });
+      });
+      closeSheet();
+    }
+    function del(){ update(function(s){ s.recurring = filter(s.recurring, function(r){return r.id!==ex.id;}); }); closeSheet(); }
+    var twoCol = el('div',{'style':'display:flex;gap:10px'},
+      el('div',{'style':'flex:2'}, field('金額', amtIn)),
+      el('div',{'style':'flex:1'}, field('日にち', dayIn)));
+    var actions = el('div',{'style':'display:flex;gap:10px;margin-top:12px'});
+    if(ex) actions.appendChild(el('button',{'class':'danger','onclick':del}, '削除'));
+    actions.appendChild(el('button',{'class':'primary','onclick':save}, '保存'));
+    return el('div',{}, stitle(ex?'固定費を編集':'固定費を追加'), seg, field('項目', labelIn), twoCol,
+      field('周期（毎N月）— 1=毎月, 2=隔月, 3=3ヶ月ごと', intIn),
+      el('label',{'class':'cbrow'}, varCb, '変動費（毎月ブレる）— 金額は目安として登録'),
+      el('div',{'style':'font-size:11px;color:'+C.mut+';margin:2px 0 4px'}, 'カレンダーに自動で入ります。各月の金額・日にち・オフは、その月の項目をタップして調整できます。周期がズレる回は、カレンダーの「この月に入れる固定費」から追加できます。'),
+      actions);
+  }
+
+  function sheetNumber(title, value, onsave){
+    var inp = el('input',{'class':'input num','inputmode':'numeric','value':value,'oninput':function(e){ e.target.value=numStr(e.target.value); }});
+    return el('div',{}, stitle(title), field('金額', inp),
+      el('button',{'class':'primary','style':'margin-top:16px','onclick':function(){ onsave(numOnly(inp.value)||0); closeSheet(); }}, '保存'));
+  }
+
+  /* ---------- エラー時は暗転させず内容を表示 ---------- */
+  window.addEventListener('error', function(ev){
+    var app = document.getElementById('app');
+    if(app && (!state || app.querySelector('.loading'))){
+      app.innerHTML = '';
+      var box = document.createElement('div'); box.className='errbox';
+      box.innerHTML = '<div style="font-size:16px;font-weight:700;margin-bottom:8px">表示エラー</div><div style="font-size:12px;color:#8B867B;white-space:pre-wrap;line-height:1.6"></div>';
+      box.querySelector('div:last-child').textContent = (ev && ev.message) || 'unknown';
+      app.appendChild(box);
+    }
+  });
+
+  boot();
+})();
+</script>
+</body>
+</html>
